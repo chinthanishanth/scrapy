@@ -24,10 +24,30 @@ class AmazonSpider(scrapy.Spider):
 
         item = AmazonreviewsItem()
 
-        item['review_txt'] = response.xpath(
-            '//*[@data-hook="review-body"][1]//text() | div[@data-hook="review-collapsed"][1]//text()').extract()
+        all_reviews_div = response.xpath('//div[@data-hook="review"]')
 
-        item['rating'] = response.xpath(
-            '//*[@data-hook="review-star-rating"][1]//text()').re('^[0-9]')
+        # review_txt = all_reviews_div.xpath(
+        #     '//*[@data-hook="review-body"]//text() | div[@data-hook="review-collapsed"]//text()')
 
-        return item
+        # rating = all_reviews_div.xpath(
+        #     '//*[@data-hook="review-star-rating"]//text()')
+
+        count = 0
+
+        for review in range(0, len(all_reviews_div)):
+
+            print(len(all_reviews_div))
+
+            data = all_reviews_div[review].xpath(
+                '//*[@data-hook="review-body"]//text() | div[@data-hook="review-collapsed"]//text()').extract()
+
+            print(data)
+
+            # item['review_txt'] = review_txt
+            # item['rating'] = rating
+            # yield {
+            #     "review_txt": ''.join(review.xpath('//text()').extract()),
+            #     "rating": ''.join(rating[count].xpath('//text()').re('^[0-9]'))
+
+            # }
+            # count = count+1
