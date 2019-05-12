@@ -12,7 +12,11 @@ class AmazonSpider(scrapy.Spider):
     name = 'amazon'
     allowed_domains = ['web']
     start_urls = ['https://www.amazon.in/Apple-iPhone-X-64GB-Silver/product-reviews/B0711T2L8K/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews']
+
     def parse(self, response):
+        '''
+        this functions scraps all the amzon reviews from the above link
+        '''
 
         item = AmazonreviewsItem()
 
