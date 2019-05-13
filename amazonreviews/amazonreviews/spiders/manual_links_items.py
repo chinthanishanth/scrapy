@@ -20,22 +20,7 @@ class AmazonSpider(scrapy.Spider):
 
     def parse(self, response):
         '''
-        This function extracts all the pagination links from the reviews of above amazon link
-        '''
-
-        # identify the next button
-        next_link = response.xpath(
-            '//*[@data-hook="pagination-bar"]//li[@class ="a-last"]//a/@href').extract_first()
-
-        if next_link:
-            next_link = response.urljoin(next_link)
-            # next_link = urljoin('https://www.amazon.in', next_link)
-            yield scrapy.Request(url=next_link, callback=self.parse_items, dont_filter=True)
-
-    def parse_items(self, response):
-        '''
-        this functions scraps all the amazon reviews from the above link, using itemloaders to
-        simplify the code
+        This function extracts all the reviews and pagination links from the reviews of above amazon link
         '''
 
         all_reviews_div = response.xpath('//div[@data-hook="review"]')
@@ -61,4 +46,11 @@ class AmazonSpider(scrapy.Spider):
 
             yield i.load_item()
 
-            # TODO need to callback parse() method to fetch more urls and parse reviews in newly fetched urls
+    # identify the next button for looping review urls to extract more urls
+        next_link = response.xpath(
+            '//*[@data-hook="pagination-bar"]//li[@class ="a-last"]//a/@href').extract_first()
+
+        if next_link:
+            next_link = response.urljoin(next_link)
+            # next_link = urljoin('https://www.amazon.in', next_link)
+            yield scrapy.Request(url=next_link, callback=self.parse, dont_filter=True)
