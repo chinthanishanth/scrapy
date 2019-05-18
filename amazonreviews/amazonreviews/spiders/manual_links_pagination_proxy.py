@@ -8,6 +8,7 @@ from scrapy.http import Request, Response
 from scrapy.settings.default_settings import DOWNLOADER_MIDDLEWARES
 import datetime
 import socket
+
 # exporting package list from  conda venv to req.txt
 # conda list -e > req.txt
 # creating a venv in  conda and installing packages from req.txt
@@ -44,7 +45,6 @@ class AmazonSpider(scrapy.Spider):
             # using MapCompose for preprocessing items: converting datatime object to string
             i.add_value('date', datetime.date.today(),
                         MapCompose(lambda x: x.strftime('%Y/%m/%d')))
-            i.add_value('ipaddr', response.headers.get('X-Proxymesh-Ip'))
 
             yield i.load_item()
 

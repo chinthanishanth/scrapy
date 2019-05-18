@@ -5,7 +5,6 @@ from scrapy.loader import ItemLoader
 from scrapy.loader.processors import MapCompose, Join
 import datetime
 import socket
-
 # exporting package list from  conda venv to req.txt
 # conda list -e > req.txt
 # creating a venv in  conda and installing packages from req.txt
