@@ -43,5 +43,6 @@ class AmazonSpider(scrapy.Spider):
             # using MapCompose for preprocessing items: converting datatime object to string
             i.add_value('date', datetime.date.today(),
                         MapCompose(lambda x: x.strftime('%Y/%m/%d')))
+            print(response.request.headers['User-Agent'])
 
             yield i.load_item()
