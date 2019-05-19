@@ -14,16 +14,31 @@ BOT_NAME = 'amazonreviews'
 SPIDER_MODULES = ['amazonreviews.spiders']
 NEWSPIDER_MODULE = 'amazonreviews.spiders'
 
-ROTATING_PROXY_LIST_PATH = '/home/nishanth/scrapy/amazonreviews/amazonreviews/proxylist.txt'
+# using scrapy-rotating-proxies library for rotating proxy's
+
+#ROTATING_PROXY_LIST_PATH = '/home/nishanth/scrapy/amazonreviews/amazonreviews/proxylist.txt'
+
+# DOWNLOADER_MIDDLEWARES = {
+#     # ...
+#     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+#     'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+#     'scrapy_useragents.downloadermiddlewares.useragents.UserAgentsMiddleware': 500
+#     # ...
+# }
+
+# using scrapy_proxy_pool library for rotating proxy's
+PROXY_POOL_ENABLED = True
 
 DOWNLOADER_MIDDLEWARES = {
     # ...
-    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
-    'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
+    'scrapy_proxy_pool.middlewares.ProxyPoolMiddleware': 610,
+    'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'scrapy_useragents.downloadermiddlewares.useragents.UserAgentsMiddleware': 500
     # ...
 }
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENTS = [
     ('Mozilla/5.0 (X11; Linux x86_64) '
