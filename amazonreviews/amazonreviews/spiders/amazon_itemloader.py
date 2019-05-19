@@ -10,6 +10,9 @@ import socket
 # creating a venv in  conda and installing packages from req.txt
 # conda create -n new environment --file req.txt
 
+# exporting using pip
+# pip freeze > requirements.txt
+
 
 class AmazonSpider(scrapy.Spider):
     name = 'amazon_itemloader'
