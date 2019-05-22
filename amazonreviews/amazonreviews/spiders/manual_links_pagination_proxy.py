@@ -16,7 +16,7 @@ import socket
 
 
 class AmazonSpider(scrapy.Spider):
-    name = 'links_manual'
+    name = 'links_manual_reviews_pagination_proxy'
     allowed_domains = ['https://www.amazon.in']
     start_urls = ['https://www.amazon.in/Apple-iPhone-X-64GB-Silver/product-reviews/B0711T2L8K/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews']
 
