@@ -22,20 +22,21 @@ NEWSPIDER_MODULE = 'amazonproducts.spiders'
 #     # ...
 # }
 
-ROTATING_PROXY_LIST_PATH = '/home/nishanth/scrapy/amazonproducts/amazonproducts/proxylist.txt'
+# ROTATING_PROXY_LIST_PATH = '/home/nishanth/scrapy/amazonproducts/amazonproducts/proxylist.txt'
 
-DOWNLOADER_MIDDLEWARES = {
-    # ...
-    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
-    'rotating_proxies.middlewares.BanDetectionMiddleware': 620
-    # ...
-}
+# DOWNLOADER_MIDDLEWARES = {
+#     # ...
+#     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+#     'rotating_proxies.middlewares.BanDetectionMiddleware': 620
+#     # ...
+# }
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+AUTOTHROTTLE_ENABLED = True
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -85,7 +86,7 @@ ROBOTSTXT_OBEY = True
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
+
 # The initial download delay
 #AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
