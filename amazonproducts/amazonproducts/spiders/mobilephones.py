@@ -30,7 +30,7 @@ class TwoDirScrapingAmazonSpider(scrapy.Spider):
         extracted_mobile_links_no_dup = list(set(extracted_mobile_links))
 
         for link in extracted_mobile_links_no_dup:
-            yield scrapy.Request(url=link, callback=self.parse_items, dont_filter=True)
+            yield scrapy.Request(url=urljoin(response.url, link), callback=self.parse_items, dont_filter=True)
 
         # follow pagination links and collect more mobile phone links
         next_page = 'https://www.amazon.in/s?rh=n%3A976419031%2Cn%3A%21976420031%2Cn%3A1389401031%2Cn%3A1389432031&page=' + \
