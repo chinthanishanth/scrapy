@@ -3,9 +3,8 @@ version: '3.1'
 services:
 
   scrapy:
-      build: 
-       context: ..
-       dockerfile: .devcontainer/Dockerfile
+      image: python:3
+      tty: true
 
   mongo:
     image: mongo
