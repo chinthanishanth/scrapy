@@ -1,5 +1,5 @@
 # scrapy
-web scraping through python scrapy
+web scraping through python scrapy - completely dockerized environment 
 
 scraping reviews from amazon and storing in mongodb and view data in mongodb using mongo express - a web based lightweight administrative interface deployed to manage mongodb database interactively 
 
