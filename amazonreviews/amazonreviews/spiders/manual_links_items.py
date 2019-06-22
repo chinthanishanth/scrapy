@@ -16,7 +16,9 @@ import socket
 class AmazonSpider(scrapy.Spider):
     name = 'links_manual_reviews_pagination'
     allowed_domains = ['https://www.amazon.in']
-    start_urls = ['https://www.amazon.in/Apple-iPhone-X-64GB-Silver/product-reviews/B0711T2L8K/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews']
+    start_urls = ['https://www.amazon.in/OnePlus-Pro-Almond-256GB-Storage/product-reviews/B07HG8SBDW/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews',
+                  'https://www.amazon.in/OnePlus-Mirror-Black-128GB-Storage/product-reviews/B07DJHV6VZ/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews',
+                  'https://www.amazon.in/OnePlus-Mirror-Grey-128GB-Storage/product-reviews/B07HGBMJT6/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews']
 
     def parse(self, response):
         '''
