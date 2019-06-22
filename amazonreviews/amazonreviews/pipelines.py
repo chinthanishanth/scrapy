@@ -11,7 +11,7 @@ import pymongo
 class AmazonreviewsPipeline(object):
 
     def __init__(self):
-        self.conn = pymongo.MongoClient('172.18.0.2', 27017)
+        self.conn = pymongo.MongoClient('172.18.0.4', 27017)
         db = self.conn['amazonreviews']
         self.collection = db['amazonreviews_tbl']
 
