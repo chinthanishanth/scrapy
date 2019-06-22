@@ -10,5 +10,7 @@ scraping reviews from amazon and storing in mongodb and view data in mongodb usi
 3. run the following command: 
     ##### docker-compose -f docker-compose up
     
-That's it you will see the logs of reviews scraped in the console 
+That's it you will see the logs of reviews scraped in the console and reviews are stored in mongodb
 
+you can view amazon reviews in mongo-express by opening the following URL:
+    <b> http://localhost:8081/ </b>
